@@ -1,55 +1,53 @@
 import React from 'react';
+import './DataTable.css';
 
 interface DataTableProps {
   data: {
-    MergedAt: string;
-    TargetRelease: string;
-    JiraTicket: string;
-    IssueType: string;
-    MergeTitle: string;
-    Description: string;
-    State: string;
-    Source: string;
-    Target: string;
-    CreatedAt: string;
+    merged_at: string;
+    target_release: string;
+    jira_ticket: string;
+    issue_type: string;
+    merge_title: string;
+    source_branch: string;
+    target_branch: string;
+    created_at: string;
   }[];
 }
 
 const DataTable: React.FC<DataTableProps> = ({ data }) => {
   console.log(data)
   return (
-    <table>
+    <div className="datatable-container">
+    <h2>Merge Requests</h2>
+    <table className="datatable">
       <thead>
         <tr>
           <th>Merged At</th>
           <th>Target Release</th>
+          <th>Target Branch</th>
           <th>Jira Ticket</th>
           <th>Issue Type</th>
           <th>Merge Title</th>
-          <th>Description</th>
-          <th>State</th>
-          <th>Source</th>
-          <th>Target</th>
-          <th>Created At</th>
+          <th>Merge Link</th>
+          <th>Source branch</th>
         </tr>
       </thead>
       <tbody>
         {data.map((item, index) => (
           <tr key={index}>
-            <td>{item.MergedAt}</td>
-            <td>{item.TargetRelease}</td>
-            <td>{item.JiraTicket}</td>
-            <td>{item.IssueType}</td>
-            <td>{item.MergeTitle}</td>
-            <td>{item.Description}</td>
-            <td>{item.State}</td>
-            <td>{item.Source}</td>
-            <td>{item.Target}</td>
-            <td>{item.CreatedAt}</td>
+            <td>{item.merged_at}</td>
+            <td>{item.target_release}</td>
+            <td>{item.target_branch}</td>
+            <td>{item.jira_ticket}</td>
+            <td>{item.issue_type}</td>
+            <td>{item.merge_title}</td>
+            <td></td>
+            <td>{item.source_branch}</td>
           </tr>
         ))}
       </tbody>
     </table>
+    </div>
   );
 };
 

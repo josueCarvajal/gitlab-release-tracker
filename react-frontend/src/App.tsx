@@ -34,6 +34,7 @@ const App: React.FC = () => {
       }
       });
       setResponseData(response.data);
+      console.log(response.data)
     } catch (error) {
       console.error('Error fetching data:', error);
     }

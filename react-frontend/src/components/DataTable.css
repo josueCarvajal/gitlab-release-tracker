@@ -1,0 +1,25 @@
+/* src/components/DataTable.css */
+
+.datatable-container {
+    margin-top: 20px;
+  }
+  
+  .datatable {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .datatable th,
+  .datatable td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .datatable th {
+    background-color: #f2f2f2;
+  }
+  
+  .datatable tbody tr:hover {
+    background-color: #f9f9f9;
+  }
