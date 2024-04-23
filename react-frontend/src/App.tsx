@@ -6,7 +6,7 @@ import DataTable from './components/DataTable';
 
 const options = [
   { label: 'Release/24.03', value: 'Release/24.03' },
-  { label: 'Release/24.06', value: 'Release/24.06' },
+  { label: 'Release/24.06', value: 'release/WR-Studio-24.06' },
   { label: 'Staging', value: 'Staging' }
 ];
 

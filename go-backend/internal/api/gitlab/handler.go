@@ -1,7 +1,6 @@
 package gitlab
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -37,13 +36,17 @@ func loadEnv() (GITLAB_API_URL string, PROJECT_ID string, GITLAB_ACCESS_TOKEN st
 
 
 func GetMergeRequests(c *gin.Context){
+
+
+
 	// Extract query parameters from the request
 	branch := c.Query("branch")
 	state := "merged"
 	GITLAB_API_URL, PROJECT_ID, GITLAB_ACCESS_TOKEN := loadEnv()
-	startDateStr := c.Query("startDate") //"2024-04-01T21:24:25.988Z"//
-	endDateStr := c.Query("endDate") // "2024-04-15T21:24:25.988Z"//
+	startDateStr := c.Query("startDate")
+	endDateStr := c.Query("endDate")
 	layout := "2006-01-02T15:04:05.000Z"
+	
 	// Parse startDate and endDate strings into time.Time objects
 	startDate, err := time.Parse(layout, startDateStr)
 	if err != nil {
@@ -55,29 +58,27 @@ func GetMergeRequests(c *gin.Context){
 		c.JSON(http.StatusBadRequest, gin.H{"error": err})
 		return
 	}
-	// Initialize GitLab API client with your personal access token
+	
+	// Initialize GitLab API client 
 	gitlabClient, err := gitlab.NewClient(GITLAB_ACCESS_TOKEN, gitlab.WithBaseURL(GITLAB_API_URL))
 	
 	if err != nil {
 		log.Fatalf("Failed to create client: %v", err)
 	  }
-	// Define options to filter merge requests (e.g., by branch and date range)
-	listOptions := &gitlab.ListMergeRequestsOptions{
+	// Define options to filter merge requests
+	listOptions := &gitlab.ListProjectMergeRequestsOptions{
 		TargetBranch: &branch,
-		State: &state,
-		
+		State: &state,		
 	}
 
 
 	// Fetch merge requests from GitLab API
-	mergeRequests, _, err := gitlabClient.MergeRequests.ListMergeRequests(listOptions)
+	mergeRequests, _, err := gitlabClient.MergeRequests.ListProjectMergeRequests(PROJECT_ID,listOptions)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch merge requests"})
 		return
 	}
 
-
 	filteredMergeRequests := ParseGitlabMergeRequest(mergeRequests,startDate,endDate)
-	fmt.Println(PROJECT_ID)
 	c.JSON(http.StatusOK, filteredMergeRequests)
 }
