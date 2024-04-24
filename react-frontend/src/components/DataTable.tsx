@@ -6,12 +6,14 @@ interface DataTableProps {
     merged_at: string;
     target_release: string;
     jira_ticket: string;
+    jira_link: string;
     issue_type: string;
     merge_title: string;
     source_branch: string;
     target_branch: string;
     created_at: string;
     web_url: string;
+    merge_number: string;
   }[];
 }
 
@@ -39,10 +41,10 @@ const DataTable: React.FC<DataTableProps> = ({ data }) => {
             <td>{item.merged_at}</td>
             <td>{item.target_release}</td>
             <td>{item.target_branch}</td>
-            <td>{item.jira_ticket}</td>
+            <td><a href={item.jira_link}>{item.jira_ticket}</a></td>
             <td>{item.issue_type}</td>
             <td>{item.merge_title}</td>
-            <td><a href={item.web_url} target='_blank'>{item.web_url}</a></td>
+            <td><a href={item.web_url} target='_blank'>{item.merge_number}</a></td>
             <td>{item.source_branch}</td>
           </tr>
         ))}

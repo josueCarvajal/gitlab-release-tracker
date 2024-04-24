@@ -17,6 +17,7 @@ type ParsedMergeRequest struct {
 	MergedAt      string `json:"merged_at"`
 	TargetRelease string `json:"target_release"`
 	JiraTicket 	  string `json:"jira_ticket"`
+	JiraLink      string `json:"jira_link"`
 	IssueType 	  string `json:"issue_type"`
 	MergeTitle    string `json:"merge_title"`
 	Description   string `json:"description"`
@@ -25,5 +26,6 @@ type ParsedMergeRequest struct {
     Target        string `json:"target_branch"`
     CreatedAt     string `json:"created_at"`
 	Draft  		  bool   `json:"draft"`
-	WithBaseURL string `json:"web_url"`
+	WithBaseURL   string `json:"web_url"`
+	MergeNumber   string `json:"merge_number"`
 }

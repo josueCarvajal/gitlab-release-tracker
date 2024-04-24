@@ -5,6 +5,9 @@ import (
 
 	"fmt"
 	"go-backend/internal/models"
+	"net/url"
+	"os"
+	"path"
 	"regexp"
 	"time"
 
@@ -39,6 +42,8 @@ func ParseGitlabMergeRequest(mergeRequest[] *gitlab.MergeRequest, startDate time
             parsedMergeRequest[index].CreatedAt     = mr.CreatedAt.String()
             parsedMergeRequest[index].Draft         = mr.Draft
             parsedMergeRequest[index].WithBaseURL   = mr.WebURL
+            parsedMergeRequest[index].MergeNumber   = parseMergeLink(mr.WebURL)
+            parsedMergeRequest[index].JiraLink      = os.Getenv("JIRA_URL") + parsedTitle["ticket_id"]
             index++
         }
 	}
@@ -75,3 +80,9 @@ func parseMergeRequetTitle(title string) map[string]string  {
     return result
 }
 
+// return the last segment of the URL in order to present a shorthand variable in the UIis
+func parseMergeLink(mergeLink string) string {
+    u, _ := url.Parse(mergeLink)
+    mergeNumber := path.Base(u.Path)
+    return mergeNumber + "!"
+}

@@ -11,7 +11,6 @@ import (
 	"github.com/joho/godotenv"
 	"github.com/xanzy/go-gitlab"
 )
-
 func loadEnv() (GITLAB_API_URL string, PROJECT_ID string, GITLAB_ACCESS_TOKEN string) {
 	err := godotenv.Load(".env")
 	if err != nil {
@@ -21,6 +20,7 @@ func loadEnv() (GITLAB_API_URL string, PROJECT_ID string, GITLAB_ACCESS_TOKEN st
 	GITLAB_API_URL = os.Getenv("GITLAB_API_URL")
 	PROJECT_ID = os.Getenv("PROJECT_ID")
 	GITLAB_ACCESS_TOKEN = os.Getenv("GITLAB_ACCESS_TOKEN")
+	JIRA_URL := os.Getenv("JIRA_URL")
 
 	// Check if environment variables are set
 	if GITLAB_API_URL == "" {
@@ -32,14 +32,14 @@ func loadEnv() (GITLAB_API_URL string, PROJECT_ID string, GITLAB_ACCESS_TOKEN st
 	if GITLAB_ACCESS_TOKEN == "" {
 		log.Fatal("GITLAB_ACCESS_TOKEN environment variable is not set")
 	}
+	if JIRA_URL == "" {
+		log.Fatal("JIRA_URL environment variable is not set")
+	}
 	return GITLAB_API_URL, PROJECT_ID, GITLAB_ACCESS_TOKEN
 }
 
 
 func GetMergeRequests(c *gin.Context){
-
-
-
 	// Extract query parameters from the request
 	branch := c.Query("branch")
 	state := "merged"
