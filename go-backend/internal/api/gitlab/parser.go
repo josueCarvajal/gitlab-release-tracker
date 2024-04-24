@@ -38,6 +38,7 @@ func ParseGitlabMergeRequest(mergeRequest[] *gitlab.MergeRequest, startDate time
             parsedMergeRequest[index].Target        = mr.TargetBranch
             parsedMergeRequest[index].CreatedAt     = mr.CreatedAt.String()
             parsedMergeRequest[index].Draft         = mr.Draft
+            parsedMergeRequest[index].WithBaseURL   = mr.WebURL
             index++
         }
 	}
@@ -73,3 +74,4 @@ func parseMergeRequetTitle(title string) map[string]string  {
 
     return result
 }
+

@@ -11,6 +11,7 @@ interface DataTableProps {
     source_branch: string;
     target_branch: string;
     created_at: string;
+    web_url: string;
   }[];
 }
 
@@ -41,7 +42,7 @@ const DataTable: React.FC<DataTableProps> = ({ data }) => {
             <td>{item.jira_ticket}</td>
             <td>{item.issue_type}</td>
             <td>{item.merge_title}</td>
-            <td></td>
+            <td><a href={item.web_url} target='_blank'>{item.web_url}</a></td>
             <td>{item.source_branch}</td>
           </tr>
         ))}

@@ -10,6 +10,7 @@ type MergeRequest struct {
     CreatedAt   string `json:"created_at"`
 	MergedAt    string `json:"merged_at"`
 	Draft  		bool   `json:"draft"`
+	WithBaseURL string `json:"web_url"`
 }
 
 type ParsedMergeRequest struct {
@@ -24,4 +25,5 @@ type ParsedMergeRequest struct {
     Target        string `json:"target_branch"`
     CreatedAt     string `json:"created_at"`
 	Draft  		  bool   `json:"draft"`
+	WithBaseURL string `json:"web_url"`
 }

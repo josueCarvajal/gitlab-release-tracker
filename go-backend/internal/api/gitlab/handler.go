@@ -1,6 +1,7 @@
 package gitlab
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -78,6 +79,7 @@ func GetMergeRequests(c *gin.Context){
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch merge requests"})
 		return
 	}
+	fmt.Println(mergeRequests)
 
 	filteredMergeRequests := ParseGitlabMergeRequest(mergeRequests,startDate,endDate)
 	c.JSON(http.StatusOK, filteredMergeRequests)
