@@ -15,15 +15,19 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(10px + 1vmin);
   color: white;
 }
 
+
+.App-bg {
+  background-color: #282c34
+}
 .App-link {
   color: #61dafb;
 }
@@ -35,4 +39,41 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.navbar-container {
+  display: flex;
+  align-items: center; /* Vertically center items */
+  justify-content: space-between; /* Align items with space between */
+  padding: 20px; /* Add padding for spacing */
+  background-color: #333; /* Navbar background color */
+  color: #fff; /* Text color */
+}
+
+/* Style DateRangePicker */
+.navbar-container .date-range-picker {
+  /* Add specific styles for DateRangePicker */
+  margin-right: 20px; /* Add right margin */
+}
+
+/* Style Dropdown */
+.navbar-container .dropdown {
+  /* Add specific styles for Dropdown */
+  margin-right: 20px; /* Add right margin */
+}
+
+/* Style Fetch Data button */
+.navbar-container button {
+  /* Add specific styles for button */
+  padding: 10px 20px; /* Add padding */
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none; /* Remove border */
+  cursor: pointer; /* Set cursor to pointer on hover */
+}
+
+/* Hover effect for button */
+.navbar-container button:hover {
+  background-color: #0056b3; /* Darker background color on hover */
 }

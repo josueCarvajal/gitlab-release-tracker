@@ -17,9 +17,35 @@
   }
   
   .datatable th {
-    background-color: #f2f2f2;
+    background-color: #3d3f43;
+    color: white;
+    /* background-color: #f2f2f2; */
   }
   
   .datatable tbody tr:hover {
-    background-color: #f9f9f9;
+    /* background-color: #a8abb2; */
+    background-color:  #ffffff;
   }
+  .datatable tbody td {
+    background-color: #282c34;
+    color: white;
+  }
+/* unvisited link */
+a:link {
+  color: rgb(167, 241, 183);
+}
+
+/* visited link */
+a:visited {
+  color: rgb(21, 97, 21);
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}

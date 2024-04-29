@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { DateRangePicker } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
-
 interface DateRangePickerProps {
   onSelect: (dateRange: any) => void;
 }
@@ -20,7 +19,7 @@ const DateRangePickerComponent: React.FC<DateRangePickerProps> = ({ onSelect }) 
   };
 
   return (
-    <div>
+    <div className="Date">
       <DateRangePicker
         ranges={[selection]}
         onChange={handleSelect}

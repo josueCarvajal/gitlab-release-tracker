@@ -1,0 +1,9 @@
+.date-range-picker {
+    display: inline-flex;
+  }
+  
+  .date-picker {
+    height: 30px; /* Adjust the height as needed */
+    width: 100px; /* Adjust the width as needed */
+    margin: 0 5px;
+  }
