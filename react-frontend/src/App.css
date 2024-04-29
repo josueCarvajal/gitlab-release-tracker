@@ -72,8 +72,22 @@
   border: none; /* Remove border */
   cursor: pointer; /* Set cursor to pointer on hover */
 }
+/* Style Fetch Data button */
+.sub-navbar-container button {
+  display: flex;
+  align-items: center; /* Vertically center items */
+  justify-content: space-between; /* Align items with space between */
+  padding: 20px; /* Add padding for spacing */
+  background-color: #333; /* Navbar background color */
+  color: #fff; /* Text color */
+}
 
 /* Hover effect for button */
 .navbar-container button:hover {
   background-color: #0056b3; /* Darker background color on hover */
+}
+
+.background {
+  background-color: lightblue; /* Change this to the desired background color */
+  padding: 20px;
 }

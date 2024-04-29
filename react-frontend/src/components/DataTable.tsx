@@ -18,10 +18,8 @@ interface DataTableProps {
 }
 
 const DataTable: React.FC<DataTableProps> = ({ data }) => {
-  console.log(data)
   return (
     <div className="datatable-container">
-    <h2>Merge Requests</h2>
     <table className="datatable">
       <thead>
         <tr>

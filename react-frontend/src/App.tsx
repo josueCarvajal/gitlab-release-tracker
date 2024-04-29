@@ -48,21 +48,26 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <nav className='navbar-container'> 
-      Target Branch: <Dropdown options={options} selectedValue={branch} onSelectChange={handleOptionSelect} />
-      Date Range: <DateRangePicker 
-             startDate={startDate}
-             endDate={endDate}
-             onStartDateChange={handleStartDateChange}
-             onEndDateChange={handleEndDateChange}
-
-      />
-      <button onClick={fetchData}>Fetch Data</button>
-      
+      <header>
+        <nav className='navbar-container'> 
+        <h1>Merge Release Tracker</h1>
+          <div> Target Branch: <Dropdown options={options} selectedValue={branch} onSelectChange={handleOptionSelect} /> </div>
+          <div>
+            Date Range: <DateRangePicker 
+                  startDate={startDate}
+                  endDate={endDate}
+                  onStartDateChange={handleStartDateChange}
+                  onEndDateChange={handleEndDateChange}
+                  
+                  />
+          </div>
+        <button onClick={fetchData}>Fetch Data</button>
       </nav>
-      {/* <DateRangePicker onSelect={handleDateRangeSelect} />
-       */}
+      </header>
+      <body >
       <DataTable data={responseData} />
+      </body>
+      {/* <DateRangePicker onSelect={handleDateRangeSelect} />*/}
     </div>
   );
 };

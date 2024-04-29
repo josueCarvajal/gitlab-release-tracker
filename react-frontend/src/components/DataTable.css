@@ -1,51 +1,24 @@
-/* src/components/DataTable.css */
-
 .datatable-container {
-    margin-top: 20px;
-  }
-  
-  .datatable {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .datatable th,
-  .datatable td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .datatable th {
-    background-color: #3d3f43;
-    color: white;
-    /* background-color: #f2f2f2; */
-  }
-  
-  .datatable tbody tr:hover {
-    /* background-color: #a8abb2; */
-    background-color:  #ffffff;
-  }
-  .datatable tbody td {
-    background-color: #282c34;
-    color: white;
-  }
-/* unvisited link */
-a:link {
-  color: rgb(167, 241, 183);
+  margin-top: 20px;
 }
 
-/* visited link */
-a:visited {
-  color: rgb(21, 97, 21);
+.datatable {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-/* mouse over link */
-a:hover {
-  color: hotpink;
+.datatable th,
+.datatable td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
-/* selected link */
-a:active {
-  color: blue;
+.datatable th {
+  background-color: #3d3f43;
+  color: white;
+}
+
+.datatable tbody tr:hover {
+  background-color: #f9f9f9;
 }

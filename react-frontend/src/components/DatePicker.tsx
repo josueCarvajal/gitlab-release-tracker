@@ -22,6 +22,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({ startDate, endDate, o
         endDate={endDate}
         placeholderText="Start Date"
         className="date-picker"
+        dateFormat="dd/MM/yyyy"
       />
       <DatePicker
         selected={endDate}
@@ -32,6 +33,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({ startDate, endDate, o
         minDate={startDate}
         placeholderText="End Date"
         className="date-picker"
+        dateFormat="dd/MM/yyyy"
       />
     </div>
   );
