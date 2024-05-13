@@ -84,8 +84,12 @@
 
 /* Hover effect for button */
 .navbar-container button:hover {
-  background-color: #0056b3; /* Darker background color on hover */
+  background-color: #269734; /* Darker background color on hover */
 }
+.navbar-container button {
+  background-color: #048113; /* Darker background color on hover */
+}
+
 
 .background {
   background-color: lightblue; /* Change this to the desired background color */
