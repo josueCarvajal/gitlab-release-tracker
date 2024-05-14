@@ -6,6 +6,7 @@ import DataTable from './components/DataTable';
 import './App.css'
 
 const options = [
+  { label: 'main', value: 'main' },
   { label: 'Release/24.03', value: 'release/WR-Studio-24.03-1.0.0' },
   { label: 'Release/24.06', value: 'release/WR-Studio-24.06' },
   { label: 'Staging/AuditTool', value: 'staging/audit-tool-integration' }
