@@ -71,7 +71,7 @@ func GetMergeRequests(c *gin.Context){
 		TargetBranch: &branch,
 		State: &state,		
 	}
-
+	listOptions.PerPage = 300
 
 	// Fetch merge requests from GitLab API
 	mergeRequests, _, err := gitlabClient.MergeRequests.ListProjectMergeRequests(PROJECT_ID,listOptions)
@@ -79,7 +79,7 @@ func GetMergeRequests(c *gin.Context){
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch merge requests"})
 		return
 	}
-	fmt.Println(mergeRequests)
+	fmt.Println(len(mergeRequests))
 
 	filteredMergeRequests := ParseGitlabMergeRequest(mergeRequests,startDate,endDate)
 	c.JSON(http.StatusOK, filteredMergeRequests)

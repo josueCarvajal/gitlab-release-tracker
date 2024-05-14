@@ -3,7 +3,6 @@ package gitlab
 import (
 	// "fmt"
 
-	"fmt"
 	"go-backend/internal/models"
 	"net/url"
 	"os"
@@ -27,7 +26,7 @@ func ParseGitlabMergeRequest(mergeRequest[] *gitlab.MergeRequest, startDate time
     parsedMergeRequest := make([]models.ParsedMergeRequest, len(mergeRequest) )
     index := 0
     for _, mr := range mergeRequest {
-        fmt.Println("StartDate:" + startDate.String() + " EndDate: " + endDate.String() + " Merged At" + mr.MergedAt.String())
+        // fmt.Println("StartDate:" + startDate.String() + " EndDate: " + endDate.String() + " Merged At" + mr.MergedAt.String())
         if isMergeBetweenDate(startDate,endDate,*mr.MergedAt) {
             parsedTitle := parseMergeRequetTitle(mr.Title)
             parsedMergeRequest[index].MergedAt      = mr.MergedAt.String()
